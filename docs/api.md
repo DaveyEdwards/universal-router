@@ -338,3 +338,17 @@ Or use external library such as [qs](https://github.com/ljharb/qs),
 import qs from 'qs';
 generateUrls(router, { stringifyQueryParams: qs.stringify });
 ```
+
+## Allowing more parameter matches
+
+At the end of your route just add (.*) <br />
+Characters such as /, <, >, * and a few others will now be alowed to be searched from the url.  Make sure it is inside your quotes <br />
+This is made possible from https://github.com/pillarjs/path-to-regexp#parameters
+```js
+const route = {
+  path: '/hello/:username(.*)', 
+  // Example Route: www.website.com/hello/davey/personal/my-brand-new-<blog>-*title*
+  
+  ...Rest of routing conifg
+};
+```
